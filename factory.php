@@ -16,7 +16,8 @@ class CaliforniaStyleCheesePizza implements Pizza {}
 class CaliforniaStyleGreekPizza implements Pizza {}
 class CaliforniaStylePepperoniPizza implements Pizza {}
 
-class OrderPizza {
+class OrderPizza
+{
     private Pizza $pizza;
 
     public function __construct(String $type)
@@ -73,12 +74,15 @@ class PizzaFactory
 /**
  * factoryにピザの内容を隔離したことで、Pizzaインターフェースへのプログラミングが可能に
  */
-class OrderPizza {
+class OrderPizza
+{
     private Pizza $pizza;
+
     public function __construct(String $type)
     {
         $this->pizza = PizzaFactory::createPizza($type);
     }
+
     public function __invoke()
     {
         $this->prepare();
@@ -101,13 +105,16 @@ class OrderPizza {
  * もっと柔軟性を持たせてみる
  */
 
-abstract class PizzaStore {
+abstract class PizzaStore
+{
     private Pizza $pizza;
+
     public function __construct(String $type)
     {
         $this->pizza = $this->createPizza($type);
     }
-    public function __invoke()
+
+    public function order()
     {
         $this->prepare();
         $this->bake();
@@ -124,7 +131,8 @@ abstract class PizzaStore {
     protected function createPizza(String $type): Pizza {}
 }
 
-class NYStore extends PizzaStore {
+class NYStore extends PizzaStore
+{
     /**
      * ファクトリーの分岐部分をサブクラスに移管
      * そうすることで、具象実装ごとに柔軟性を持たせられる
@@ -146,7 +154,8 @@ class NYStore extends PizzaStore {
     }
 }
 
-class SSStore extends PizzaStore {
+class SSStore extends PizzaStore
+{
     /**
      * ファクトリーの分岐部分をサブクラスに移管
      * そうすることで、具象実装ごとに柔軟性を持たせられる
@@ -166,7 +175,8 @@ class SSStore extends PizzaStore {
     }
 }
 
-class ChicagoStyleStore extends PizzaStore {
+class ChicagoStyleStore extends PizzaStore
+{
     /**
      * ファクトリーの分岐部分をサブクラスに移管
      * そうすることで、具象実装ごとに柔軟性を持たせられる
@@ -188,7 +198,8 @@ class ChicagoStyleStore extends PizzaStore {
     }
 }
 
-class CaliforniaStyleStore extends PizzaStore {
+class CaliforniaStyleStore extends PizzaStore
+{
     /**
      * ファクトリーの分岐部分をサブクラスに移管
      * そうすることで、具象実装ごとに柔軟性を持たせられる
