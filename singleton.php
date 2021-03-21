@@ -14,7 +14,7 @@ class Singleton
 
     // privateでコンストラクタが定義されているため,Singletonクラスのみが、Singletonクラスをインスタンス化できる。
     private function __construct() {
-        echo 'constructed';
+        var_dump('constructed');
     }
 
     public static function getInstance(): Singleton
