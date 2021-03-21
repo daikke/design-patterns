@@ -1,4 +1,10 @@
 <?php
+/* decorator pattern*/
+/* オブジェクトに付加的な責務を動的に付与する*/
+/* 柔軟な拡張手段をえる*/
+/**
+ * インスタンスが動的に責務が増えるような場合
+ */
 interface AbstractBeverage
 {
     public function getDescription(): string;

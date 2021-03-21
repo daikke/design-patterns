@@ -1,8 +1,12 @@
 <?php
-/* strategy patern*/
+/* strategy pattern*/
 /* 振る舞いを抽象化する*/
 /* 振る舞いを交換可能にする*/
 /* 振る舞いを独立する*/
+/**
+ * 不変な部分と変更する部分を明確化でき
+ * 変更部分を切り出す場合
+ */
 
 interface FlyBehavior
 {

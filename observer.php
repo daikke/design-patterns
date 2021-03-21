@@ -1,8 +1,13 @@
 <?php
-/* strategy patern*/
+/* strategy pattern*/
 /* Subject(配信者)とObserver(監視者)に分ける*/
 /* Subjectの状態の変更は、SubjectがObserverに通知する*/
 /* SubjectはObserverの具象実装に関与せず、Observerインターフェースに対しての実装を行う*/
+/**
+ * とあるオブジェクトが
+ * 別のオブジェクトの状態変化を
+ * 認知する必要がある場合
+ */
 interface Subject
 {
     public function registerObserver(Observer $observer);
